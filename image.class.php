@@ -20,17 +20,19 @@ class image {
   private $_width = 0;
   private $_height = 0;
   private $_color;
+  private $_text;
 
   /**
    * 
    * @param type $height
    * @param type $width
    */
-  public function __construct($height, $width, $color = "#FFCC00") {
+  public function __construct($height, $width, $color = "#FFCC00", $text = NULL) {
     if (($height != 0) && ($width != 0)) {
       $this->setHeight($width);
       $this->setWidth($width);
       $this->setColor($color);
+      $this->setText($text);
           
       $this->createImage();
     } else {
@@ -56,6 +58,15 @@ class image {
     $this->_color = $color;
   }
   
+  private function setText($text) {
+    if ($text == NULL) {
+      $this->_text = ($this->_width . "x" . $this->_height);
+      //$this->_text = "TEST";
+    } else {
+      $this->_text = $text;
+    }
+  }
+  
   private function hexToRgb($hex) {
     
    $hex = str_replace("#", "", $hex);
@@ -76,11 +87,20 @@ class image {
 
   public function createImage() {
     if (($this->_height != 0) && ($this->_width != 0)) {
+      
       header('Content-Type: image/png');
       $im = imagecreatetruecolor($this->_width, $this->_height);
+      
       $color = $this->hexToRgb($this->_color);
-      $color = imagecolorallocate($im, $color[0], $color[1], $color[2]);
-      imagefilledrectangle($im, 0, 0, $this->_width, $this->_height, $color);
+      $imageColor = imagecolorallocate($im, $color[0], $color[1], $color[2]);
+      imagefilledrectangle($im, 0, 0, $this->_width, $this->_height, $imageColor);
+      
+      $x = ($this->_width / 2);
+      $y = ($this->_height / 2);
+      $textColor = $this->hexToRgb("#FFFFFF");
+      $textColorImage = imagecolorallocate($im, $textColor[0], $textColor[1], $textColor[2]);
+      imagestring($im, 5, $x, $y, $this->_text, $textColorImage);
+      
       imagepng($im);
       imagedestroy($im);
     } else {
