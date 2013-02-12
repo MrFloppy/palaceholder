@@ -1,0 +1,6 @@
+[12-Feb-2013 21:48:06 UTC] PHP Warning:  imagefontwidth() expects parameter 1 to be long, string given in /var/www/palaceholder/image.class.php on line 104
+[12-Feb-2013 21:48:06 UTC] PHP Warning:  imagefontheight() expects parameter 1 to be long, string given in /var/www/palaceholder/image.class.php on line 105
+[12-Feb-2013 21:48:06 UTC] PHP Warning:  imagefontwidth() expects parameter 1 to be long, string given in /var/www/palaceholder/image.class.php on line 104
+[12-Feb-2013 21:48:06 UTC] PHP Warning:  imagefontheight() expects parameter 1 to be long, string given in /var/www/palaceholder/image.class.php on line 105
+[12-Feb-2013 21:48:06 UTC] PHP Warning:  imagefontwidth() expects parameter 1 to be long, string given in /var/www/palaceholder/image.class.php on line 104
+[12-Feb-2013 21:48:06 UTC] PHP Warning:  imagefontheight() expects parameter 1 to be long, string given in /var/www/palaceholder/image.class.php on line 105

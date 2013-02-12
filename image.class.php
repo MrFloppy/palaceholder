@@ -21,6 +21,7 @@ class image {
   private $_height = 0;
   private $_color;
   private $_text;
+  private $_fontSize = 20;
 
   /**
    * 
@@ -61,7 +62,6 @@ class image {
   private function setText($text) {
     if ($text == NULL) {
       $this->_text = ($this->_width . "x" . $this->_height);
-      //$this->_text = "TEST";
     } else {
       $this->_text = $text;
     }
@@ -99,7 +99,10 @@ class image {
       $y = ($this->_height / 2);
       $textColor = $this->hexToRgb("#FFFFFF");
       $textColorImage = imagecolorallocate($im, $textColor[0], $textColor[1], $textColor[2]);
-      imagestring($im, 5, $x, $y, $this->_text, $textColorImage);
+      
+      $font = "fonts/roboto/RobotoCondensed-Bold.ttf";
+      $textSize = imagettfbbox($this->_fontSize, 0, $font, $this->_text);
+      imagettftext($im, $this->_fontSize, 0, ($x-($textSize[2]-$textSize[0])), ($y-($textSize[1]-$textSize[7])), $textColorImage, $font, $this->_text);
       
       imagepng($im);
       imagedestroy($im);
