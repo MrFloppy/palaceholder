@@ -168,6 +168,8 @@ class image {
 
   /**
    * Renders the image
+   * 
+   * @todo Move some function-calls into a new method
    */
   public function createImage() {
     if (($this->_height != 0) && ($this->_width != 0)) {
