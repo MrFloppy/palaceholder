@@ -5,6 +5,8 @@
  * and open the template in the editor.
  */
 
+include("config.inc.php");
+
 /**
  * Description of image
  *
@@ -21,7 +23,7 @@ class image {
   private $_height = 0;
   private $_color;
   private $_text;
-  private $_fontSize = 20;
+  private $_fontSize = 25;
 
   /**
    * 
@@ -67,6 +69,14 @@ class image {
     }
   }
   
+  private function newLogLine($text) {
+    $filePointer = fopen(LOGPATH, "a");
+    $timestamp = time();
+    $time = date("[d.m.Y-H:i]", $timestamp);
+    fwrite($filePointer, $time . $text);
+    fclose($filePointer);
+  }
+  
   private function hexToRgb($hex) {
     
    $hex = str_replace("#", "", $hex);
@@ -88,21 +98,24 @@ class image {
   public function createImage() {
     if (($this->_height != 0) && ($this->_width != 0)) {
       
-      header('Content-Type: image/png');
+      header("Content-Type: image/png");
       $im = imagecreatetruecolor($this->_width, $this->_height);
       
       $color = $this->hexToRgb($this->_color);
       $imageColor = imagecolorallocate($im, $color[0], $color[1], $color[2]);
       imagefilledrectangle($im, 0, 0, $this->_width, $this->_height, $imageColor);
       
-      $x = ($this->_width / 2);
-      $y = ($this->_height / 2);
       $textColor = $this->hexToRgb("#FFFFFF");
       $textColorImage = imagecolorallocate($im, $textColor[0], $textColor[1], $textColor[2]);
       
       $font = "fonts/roboto/RobotoCondensed-Bold.ttf";
       $textSize = imagettfbbox($this->_fontSize, 0, $font, $this->_text);
-      imagettftext($im, $this->_fontSize, 0, ($x-($textSize[2]-$textSize[0])), ($y-($textSize[1]-$textSize[7])), $textColorImage, $font, $this->_text);
+      $x = (($this->_width - ($textSize[2]-$textSize[0])) / 2);
+      $y = ((($this->_height) / 2) + (($textSize[1] - $textSize[7]) / 2) - (($textSize[1]) / 2));
+      if(LOGGING) {
+        $this->newLogLine("Set Text position: Image position - X: $x Y: $y, Text height:" . ($textSize[1]-$textSize[7]) . "\n");
+      }
+      imagettftext($im, $this->_fontSize, 0, $x, $y, $textColorImage, $font, $this->_text);
       
       imagepng($im);
       imagedestroy($im);

@@ -4,3 +4,19 @@
 [12-Feb-2013 21:48:06 UTC] PHP Warning:  imagefontheight() expects parameter 1 to be long, string given in /var/www/palaceholder/image.class.php on line 105
 [12-Feb-2013 21:48:06 UTC] PHP Warning:  imagefontwidth() expects parameter 1 to be long, string given in /var/www/palaceholder/image.class.php on line 104
 [12-Feb-2013 21:48:06 UTC] PHP Warning:  imagefontheight() expects parameter 1 to be long, string given in /var/www/palaceholder/image.class.php on line 105
+[15-Feb-2013 17:22:09 UTC] PHP Notice:  Use of undefined constant a - assumed 'a' in /var/www/palaceholder/image.class.php on line 73
+[15-Feb-2013 17:22:09 UTC] PHP Notice:  Use of undefined constant a - assumed 'a' in /var/www/palaceholder/image.class.php on line 73
+[15-Feb-2013 17:22:09 UTC] PHP Notice:  Use of undefined constant a - assumed 'a' in /var/www/palaceholder/image.class.php on line 73
+[15-Feb-2013 17:24:28 UTC] PHP Notice:  Use of undefined constant a - assumed 'a' in /var/www/palaceholder/image.class.php on line 73
+[15-Feb-2013 17:24:28 UTC] PHP Notice:  Use of undefined constant a - assumed 'a' in /var/www/palaceholder/image.class.php on line 73
+[15-Feb-2013 17:24:28 UTC] PHP Notice:  Use of undefined constant a - assumed 'a' in /var/www/palaceholder/image.class.php on line 73
+[15-Feb-2013 17:25:14 UTC] PHP Notice:  Use of undefined constant a - assumed 'a' in /var/www/palaceholder/image.class.php on line 73
+[15-Feb-2013 17:25:14 UTC] PHP Notice:  Use of undefined constant a - assumed 'a' in /var/www/palaceholder/image.class.php on line 73
+[15-Feb-2013 17:25:14 UTC] PHP Notice:  Use of undefined constant a - assumed 'a' in /var/www/palaceholder/image.class.php on line 73
+[15-Feb-2013 17:25:29 UTC] PHP Notice:  Use of undefined constant a - assumed 'a' in /var/www/palaceholder/image.class.php on line 73
+[15-Feb-2013 17:25:29 UTC] PHP Notice:  Use of undefined constant a - assumed 'a' in /var/www/palaceholder/image.class.php on line 73
+[15-Feb-2013 17:25:29 UTC] PHP Notice:  Use of undefined constant a - assumed 'a' in /var/www/palaceholder/image.class.php on line 73
+[15-Feb-2013 17:48:03 UTC] PHP Notice:  Undefined variable: date in /var/www/palaceholder/image.class.php on line 76
+[15-Feb-2013 17:48:03 UTC] PHP Notice:  Undefined variable: date in /var/www/palaceholder/image.class.php on line 76
+[15-Feb-2013 17:48:03 UTC] PHP Notice:  Undefined variable: date in /var/www/palaceholder/image.class.php on line 76
+[15-Feb-2013 17:48:03 UTC] PHP Notice:  Undefined variable: date in /var/www/palaceholder/image.class.php on line 76
