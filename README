@@ -11,7 +11,7 @@ Planned features (aka ToDo):
 [ ] Add UnitTests (after first production release)
 [ ] Set min and max dimensions
 [x] Implement text feature properly
-[ ] Implement text size properly
+[x] Implement text size properly (is now dynamically calculated with possibility to switch to static)
 [ ] Add some Rewriting
 [ ] Change output format of image
 [ ] Change text color to always have a good contrast on background

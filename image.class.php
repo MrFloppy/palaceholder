@@ -146,6 +146,9 @@ class image {
    * @param string $text
    */
   private function newLogLine($text) {
+    if (strlen($text) == 0) {
+      return;
+    }
     $filePointer = fopen(LOGPATH, "a");
     $time = date("[d.m.Y-H:i]", time());
     fwrite($filePointer, $time . $text . "\n");
@@ -204,7 +207,7 @@ class image {
     }
     
     //$logOutput .= "Choosen font-size: " . $fontSize; DISABLED FOR FUTURE DEBUG MODE
-    $this->newLogLine($logOutput);
+    //$this->newLogLine($logOutput);
     
     return $fontSize;
   }

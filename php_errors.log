@@ -20,3 +20,9 @@
 [15-Feb-2013 17:48:03 UTC] PHP Notice:  Undefined variable: date in /var/www/palaceholder/image.class.php on line 76
 [15-Feb-2013 17:48:03 UTC] PHP Notice:  Undefined variable: date in /var/www/palaceholder/image.class.php on line 76
 [15-Feb-2013 17:48:03 UTC] PHP Notice:  Undefined variable: date in /var/www/palaceholder/image.class.php on line 76
+[18-Feb-2013 12:01:35 UTC] PHP Notice:  Undefined variable: logOutput in /var/www/palaceholder/image.class.php on line 207
+[18-Feb-2013 12:01:35 UTC] PHP Notice:  Undefined variable: logOutput in /var/www/palaceholder/image.class.php on line 207
+[18-Feb-2013 12:03:05 UTC] PHP Notice:  Undefined variable: logOutput in /var/www/palaceholder/image.class.php on line 210
+[18-Feb-2013 12:03:05 UTC] PHP Notice:  Undefined variable: logOutput in /var/www/palaceholder/image.class.php on line 210
+[18-Feb-2013 12:03:29 UTC] PHP Notice:  Undefined variable: logOutput in /var/www/palaceholder/image.class.php on line 210
+[18-Feb-2013 12:03:29 UTC] PHP Notice:  Undefined variable: logOutput in /var/www/palaceholder/image.class.php on line 210
