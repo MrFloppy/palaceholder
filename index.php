@@ -20,6 +20,9 @@ if (isset($_GET['color']) && !isset($_GET['text'])) {
   $color = $_GET['color'];
   $text = $_GET['text'];
   $image = new image($height, $width, $color, $text);    
+} else if (!isset($_GET['color']) && isset($_GET['text'])) {
+  $text = $_GET['text'];
+  $image = new image($height, $width, NULL, $text);    
 } else {
   $image = new image($height, $width);  
 }

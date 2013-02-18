@@ -59,7 +59,7 @@ class image {
    * @var integer
    * @todo needs automatic calculation to fit the image (e.g. x% of image width)
    */
-  private $_fontSize = 25;
+  private $_fontSize = DEFAULT_FONT_SIZE;
 
   /**
    * Refers to all methods needed to create an image
@@ -130,15 +130,25 @@ class image {
   }
   
   /**
+   * Sets the font size depending on settings (static or dynamic)
+   */
+  private function setFontSize() {
+    if(STATIC_FONT_SIZE) {
+      $this->_fontSize = DEFAULT_FONT_SIZE;
+    } else {
+      $this->_fontSize = $this->calculateFontSize();
+    }
+  }
+  
+  /**
    * Creates a new line in the log file, prefixed with time and date
    * 
    * @param string $text
    */
   private function newLogLine($text) {
     $filePointer = fopen(LOGPATH, "a");
-    $timestamp = time();
-    $time = date("[d.m.Y-H:i]", $timestamp);
-    fwrite($filePointer, $time . $text);
+    $time = date("[d.m.Y-H:i]", time());
+    fwrite($filePointer, $time . $text . "\n");
     fclose($filePointer);
   }
   
@@ -164,6 +174,39 @@ class image {
    $rgb = array($r, $g, $b);
    //return implode(",", $rgb); // returns the rgb values separated by commas
    return $rgb; // returns an array with the rgb values
+  }
+  
+  /**
+   * Calculates font size depending on image dimensions and font choosen
+   * 
+   * @return integer The dynamic calculated font size
+   */
+  private function calculateFontSize() {
+    $textWidthMax = ($this->_width * (TEXT_WIDTH_PERCENTAGE/100));
+    $textHeightMax = ($this->_height * (TEXT_HEIGHT_PERCENTAGE/100));
+    
+    //$logOutput = "TextMaxWidth: $textWidthMax TextMaxHeight: $textHeightMax"; DISABLED FOR FUTURE DEBUG MODE
+    
+    
+    //Let's first get the maximum height that is allowed
+    $fontSize = ceil($textHeightMax);
+    $textLength = strlen($this->_text) * 0.8;
+    
+    //Calculate the width of one letter
+    $textSize = imagettfbbox($fontSize, 0, FONT, CALCULATION_LETTER);
+    $letterWidth = ($textSize[2]-$textSize[0]);
+    
+    //$logOutput .= "Calculated MaxWidth: " . ($fontSize * $textLength) . "Letter width: " . $letterWidth; DISABLED FOR FUTURE DEBUG MODE
+    
+    //Now let's see if this font-size also fits for the width
+    if (($letterWidth * $textLength) >= $textWidthMax) {
+      $fontSize = ($textWidthMax / $textLength);
+    }
+    
+    //$logOutput .= "Choosen font-size: " . $fontSize; DISABLED FOR FUTURE DEBUG MODE
+    $this->newLogLine($logOutput);
+    
+    return $fontSize;
   }
 
   /**
@@ -191,21 +234,18 @@ class image {
       $textColor = $this->hexToRgb("#FFFFFF");
       $textColorImage = imagecolorallocate($im, $textColor[0], $textColor[1], $textColor[2]);
       
-      //Load custom font
-      //TODO: Move this to config.inc.php
-      $font = "fonts/roboto/RobotoCondensed-Bold.ttf";
-      
       //Calculate text size in image
-      $textSize = imagettfbbox($this->_fontSize, 0, $font, $this->_text);
+      $this->setFontSize();
+      $textSize = imagettfbbox($this->_fontSize, 0, FONT, $this->_text);
       //Calculate the position of the text
       $x = (($this->_width - ($textSize[2]-$textSize[0])) / 2);
       $y = ((($this->_height) / 2) + (($textSize[1] - $textSize[7]) / 2) - (($textSize[1]) / 2));
       //If enabled, do a line of logging here
       if(LOGGING) {
-        $this->newLogLine("Set Text position: Image position - X: $x Y: $y, Text height:" . ($textSize[1]-$textSize[7]) . "\n");
+        $this->newLogLine("Set Text position: Image position - X: $x Y: $y, Text height:" . ($textSize[1]-$textSize[7]));
       }
       //Finally create the text
-      imagettftext($im, $this->_fontSize, 0, $x, $y, $textColorImage, $font, $this->_text);
+      imagettftext($im, $this->_fontSize, 0, $x, $y, $textColorImage, FONT, $this->_text);
       
       //TODO: Change type for output image
       imagepng($im);
