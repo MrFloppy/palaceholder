@@ -9,12 +9,12 @@ Planned features (aka ToDo):
 [ ] Implementation of usage of predefined images as background (after first production release)
 [x] Add proper comments
 [ ] Add UnitTests (after first production release)
-[ ] Set min and max dimensions
+[x] Set min and max dimensions
 [x] Implement text feature properly
 [x] Implement text size properly (is now dynamically calculated with possibility to switch to static)
 [ ] Add some Rewriting
 [ ] Change output format of image
 [ ] Change text color to always have a good contrast on background
-[ ] Add debug mode
+[ ] Add debug mode (log exceptions and created images)
 
 You want to use this snippet? You may if you send me an email where and for what you want to use it.

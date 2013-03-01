@@ -76,8 +76,19 @@ class image {
    */
   public function __construct($height, $width, $color = "#FFCC00", $text = NULL) {
     if (($height != 0) && ($width != 0)) {
-      $this->setHeight($width);
+      
+     if ($width > MAX_WIDTH) {
+       throw new phException("Too big width");
+       exit;
+     }
       $this->setWidth($width);
+     
+     if ($height > MAX_HEIGHT) {
+       throw new phException("Too big height");
+       exit;
+     }
+      $this->setHeight($height);
+
       $this->setColor($color);
       $this->setText($text);
           
