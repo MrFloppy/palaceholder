@@ -50,7 +50,9 @@ define("DEFAULT_FONT_SIZE", 10);
  */
 define("LOGPATH", "palaceholder.log");
 
-define("MAX_WIDTH", 500);
+define("MAX_WIDTH", 2000);
 
 define("MAX_HEIGHT", 2000);
+
+define("FONT_COLOR", "#FFFFFF");
 ?>

@@ -190,6 +190,10 @@ class image {
    //return implode(",", $rgb); // returns the rgb values separated by commas
    return $rgb; // returns an array with the rgb values
   }
+ 
+  private function setColors() {
+    
+  }
   
   /**
    * Calculates font size depending on image dimensions and font choosen
@@ -201,8 +205,7 @@ class image {
     $textHeightMax = ($this->_height * (TEXT_HEIGHT_PERCENTAGE/100));
     
     //$logOutput = "TextMaxWidth: $textWidthMax TextMaxHeight: $textHeightMax"; DISABLED FOR FUTURE DEBUG MODE
-    
-    
+     
     //Let's first get the maximum height that is allowed
     $fontSize = ceil($textHeightMax);
     $textLength = strlen($this->_text) * 0.8;
@@ -245,8 +248,7 @@ class image {
       
       //Change text color
       //TODO: Move this to config.inc.php
-      //TODO: Make this dynamic
-      $textColor = $this->hexToRgb("#FFFFFF");
+      $textColor = $this->hexToRgb(FONT_COLOR);
       $textColorImage = imagecolorallocate($im, $textColor[0], $textColor[1], $textColor[2]);
       
       //Calculate text size in image
