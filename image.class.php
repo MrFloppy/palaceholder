@@ -62,6 +62,14 @@ class image {
    * @var integer
    */
   private $_fontSize = DEFAULT_FONT_SIZE;
+  
+  /**
+   * Holds the image we produce
+   * 
+   * @var string
+   * @todo implement this baby
+   */
+  private $_image;
 
   /**
    * Refers to all methods needed to create an image
@@ -191,6 +199,9 @@ class image {
    return $rgb; // returns an array with the rgb values
   }
  
+  /**
+   * Sets the given color to the image
+   */
   private function setColors() {
     
   }
