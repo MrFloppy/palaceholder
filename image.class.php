@@ -14,6 +14,11 @@
 include("config.inc.php");
 
 /**
+ * Include custom exception handling
+ */
+include("ph-exception.class.php");
+
+/**
  * Class for the creation of placeholder images
  *
  * @author Maximilian Sohrt

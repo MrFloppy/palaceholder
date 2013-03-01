@@ -49,4 +49,8 @@ define("DEFAULT_FONT_SIZE", 10);
  * Defines the path to logfile
  */
 define("LOGPATH", "palaceholder.log");
+
+define("MAX_WIDTH", 2000);
+
+define("MAX_HEIGHT", 2000);
 ?>
