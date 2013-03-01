@@ -22,7 +22,6 @@ include("ph-exception.class.php");
  * Class for the creation of placeholder images
  *
  * @author Maximilian Sohrt
- * 
  */
 class image {
 
@@ -54,7 +53,6 @@ class image {
    * The text to be shown on the image
    *
    * @var string
-   * @todo Needs to be properly implemented
    */
   private $_text;
   
@@ -62,7 +60,6 @@ class image {
    * Defines the font-size of the text in the image
    * 
    * @var integer
-   * @todo needs automatic calculation to fit the image (e.g. x% of image width)
    */
   private $_fontSize = DEFAULT_FONT_SIZE;
 
@@ -134,7 +131,6 @@ class image {
   /**
    * Sets the text for the image
    * 
-   * @todo Implement real text
    * @param string $text
    */
   private function setText($text) {
@@ -231,7 +227,7 @@ class image {
   /**
    * Renders the image
    * 
-   * @todo Move some function-calls into a new method
+   * @todo Move some function-calls into a new method! This thing is way too big
    */
   public function createImage() {
     if (($this->_height != 0) && ($this->_width != 0)) {
